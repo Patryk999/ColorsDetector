@@ -1,3 +1,6 @@
+#
+#to run type  >python colorsdetector.py --image lines.jpg
+#
 import numpy as np
 import argparse
 import cv2
@@ -7,11 +10,14 @@ ap.add_argument("-i", "--image")
 args = vars(ap.parse_args())
 image = cv2.imread(args["image"])
 print(image)
+
+#white boundries
 boundaries = [
-	([180, 190, 180], [255, 255, 255]),
+	([180, 180, 180], [255, 255, 255]),
 ]
 
-for x in range(0,230,10):
+#test boundries
+for x in range(0,180,10):
     boundaries.append(([x,x,x],[255,255,255]))
 
 for (lower, upper) in boundaries:
